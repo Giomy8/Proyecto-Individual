@@ -1,0 +1,10 @@
+.fondo{
+    background: url(../../assets/imagenes/create.jpg);
+    border: solid 3px black;
+    background-size: 100% 100%;
+    padding: 80px;
+    padding-right: 150px;
+    width: 80vw;
+    max-width: 800px;
+    margin: 0 auto;
+}

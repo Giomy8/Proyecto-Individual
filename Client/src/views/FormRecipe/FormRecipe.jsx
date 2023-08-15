@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { createRecipe, getAllDiets } from '../../redux/actions';
+import styles from './FormRecipe.module.css';
 
 
 export function validateRecipe(inputs) {
@@ -113,7 +114,7 @@ const handleStepsChange = (index, newValue) => {
   };
 
   return (
-    <div className="Form-page">
+    <div className={styles.fondo}>
       <h2>Create a New Recipe</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Title: </label>

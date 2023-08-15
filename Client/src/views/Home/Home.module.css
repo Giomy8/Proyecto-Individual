@@ -1,3 +1,20 @@
 .fondo{
     background: url(../../assets/imagenes/home.jpg);
 }
+
+.filtros{
+    font-family: 'Courier New', Courier, monospace;
+    background: url(../../assets/imagenes/filtros.jpg);
+    border: 0;
+    padding: 0px 80px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+
+.filtros select{
+    font-size: 30px;
+}

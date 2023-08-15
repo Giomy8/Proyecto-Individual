@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './RecipeCard.module.css';
+import {IconArrowBigLeftFilled} from "@tabler/icons-react";
 
 const RecipeCard = ({ recipe }) => {
   let arraydiets = recipe?.diets;
@@ -11,7 +12,12 @@ const RecipeCard = ({ recipe }) => {
 
   return (
     <div className={styles.card}>
+    
     <Link to={`/recipe/${recipe.id}`}>
+      
+    <div className={styles.pestana}>View Recipe
+    <IconArrowBigLeftFilled size={30}/></div>
+      
       <div className={styles.image}>
         <img src={recipe.image} alt={recipe.title} />
       </div>

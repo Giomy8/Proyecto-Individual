@@ -1,5 +1,6 @@
 .fondo{
-    background: url(../../assets/imagenes/details.jpg);
+    background: url(../../assets/imagenes/details2.jpg);
+    border: solid 3px black;
     background-size: 100% 100%;
     padding: 80px;
     padding-right: 150px;
