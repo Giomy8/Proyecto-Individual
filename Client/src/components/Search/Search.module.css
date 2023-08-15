@@ -1,0 +1,41 @@
+.contenedor {
+    display: flex;
+    
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-end;
+    top: 0;
+    position: relative;
+    margin: 0;
+    margin-top: 0; 
+    }
+
+
+
+.lupa{
+position: absolute; left:3px; top: 14px;
+color: white;
+}
+
+.buscador{
+    position: relative;
+}
+
+.input{margin-top:8px !important}
+.button{position: relative; top: -12px !important}    
+
+@media screen and (min-width:1160px){
+    /* .button {
+        
+        height: 40px;
+        width: 100px;
+        
+    }
+    
+    .input{
+        height: 40px;
+        width: 220px;
+        
+    }   */
+}

@@ -1,0 +1,38 @@
+body{
+ font-family:'Courier New', Courier, monospace;
+ font-weight: 700; 
+ margin: 0;
+ padding: 0;
+ background: url(../src/assets/imagenes/home.jpg);
+}
+
+input{
+  background-color:  black;
+  border:0;
+  height: 40px;
+  width: 280px;
+  border-radius: 15px;
+  color: white;
+  margin:0;
+  margin-right: 10px;
+  padding-left: 40px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+button{
+  font-family:serif;
+  color: white;
+  background-color: black;
+  margin: 0 10px;
+  border: 0;
+  font-size: 25px;
+  padding: 0px 80px;
+  border-radius: 20px;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+button:hover{
+  color:orangered;
+}
