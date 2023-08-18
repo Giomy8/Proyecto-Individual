@@ -2,19 +2,55 @@
     background: url(../../assets/imagenes/home.jpg);
 }
 
-.filtros{
+.filtros {
     font-family: 'Courier New', Courier, monospace;
     background: url(../../assets/imagenes/filtros.jpg);
     border: 0;
-    padding: 0px 80px;
+    padding: 0 10%; /* Ajusta el padding para mayor responsividad */
     padding-bottom: 10px;
-    cursor: pointer;
     display: flex;
+    flex-wrap: wrap; /* Ajusta el diseño de los filtros */
     justify-content: space-between;
     align-items: center;
-    align-content: center;
+  }
+  
+  .filtros select {
+    background: url(../../assets/imagenes/select.avif);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px; /* Reduce el tamaño de fuente para responsividad */
+    border-radius: 20px;
+    border: 3px solid white;
+    cursor: pointer;
+    font-weight: 600;
+    margin: 5px 0; /* Añade margen vertical */
+    padding: 8px; /* Ajusta el espaciado interno */
+  }
+
+.filtros select:hover{
+color: brown;
 }
 
-.filtros select{
-    font-size: 30px;
+.pages button{
+    border-radius: 50%; background-color: brown; color: white; padding: 2px 6px; text-align: center; border:0; margin:0px 5px; cursor: pointer;
+    }
+.pages button:hover{
+     background-color: rgb(228, 186, 0); color: black;
 }
+    
+.pages{
+     margin-bottom: 20px; text-align: center;
+}
+.pages .active{
+    border:solid 2px black
+}
+
+@media (max-width: 768px) {
+    /* Estilos para pantallas más pequeñas (hasta 768px) */
+    .filtros {
+      padding: 0 5%; /* Ajusta el padding para responsividad */
+    }
+  
+    .filtros select {
+      font-size: 16px; /* Reduce aún más el tamaño de fuente */
+    }
+  }

@@ -45,11 +45,8 @@ console.log(formData,"aquí está")
   const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
-    const { title, value } = event.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [title]: value,
-    }));
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
   };
 
 const handleStepsChange = (index, newValue) => {
@@ -91,43 +88,46 @@ const handleStepsChange = (index, newValue) => {
     }
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+const handleSubmit = (event) => {
+  event.preventDefault();
 
-    const newErrors = validateRecipe(formData);
+  const newErrors = validateRecipe(formData);
 
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
+  if (Object.keys(newErrors).length > 0) {
+    setErrors(newErrors);
+    return;
+  }
 
-    dispatch(createRecipe(formData));
+  dispatch(createRecipe(formData));
 
-    setFormData({
-      title: '',
-      summary: '',
-      healthScore: '',
-      steps: '',
-      image: '',
-      diets: [],
-    });
-  };
+  setFormData({
+    title: '',
+    summary: '',
+    healthScore: '',
+    steps: [], // Change this line to set steps to an empty array
+    image: '',
+    diets: [],
+  });
+};
+
 
   return (
     <div className={styles.fondo}>
       <h2>Create a New Recipe</h2>
-      <form onSubmit={handleSubmit}>
+      <form className ={styles.datos} onSubmit={handleSubmit}>
+        <div>
         <label htmlFor="name">Title: </label>
-          <br />
+          <br/>
           <input 
           type="text" 
           name="title" 
-          value={formData.title} 
+          value={formData.title}
           onChange={handleChange}
-          placeholder="Title"
+          placeholder="Title. . ."
           />
           {errors.title && <div className="error">{errors.title}</div>}
-        <br />
+        </div>
+        <div>
         <label htmlFor="image">URL Image: </label>
         <br />
         <input 
@@ -135,21 +135,23 @@ const handleStepsChange = (index, newValue) => {
         name="image"
         value={formData.image}
         onChange={handleChange}
-        placeholder="URL image"
+        placeholder="URL image. . ."
          />
         {errors.image && <div className="error">{errors.image}</div>}
-        <br />
-        <label htmlFor="image">URL healthScore: </label>
+        </div>
+        <div>
+        <label htmlFor="image">healthScore: </label>
         <br />
         <input 
         type="number"
         name="healthScore"
         value={formData.healthScore}
         onChange={handleChange}
-        placeholder="URL healthScore"
+        placeholder="HealthScore. . ."
          />
         {errors.healthScore && (<div className="error">{errors.healthScore}</div>)}
-        <br />
+        </div>
+        <div>
         <label htmlFor="summary">Summary: </label>
         <br />
         <textarea
@@ -158,10 +160,11 @@ const handleStepsChange = (index, newValue) => {
         rows="5"
         value={formData.summary}
         onChange={handleChange}
-        placeholder="Summary..."
+        placeholder="Summary. . ."
         />
         {errors.summary && <div className="error">{errors.summary}</div>}
-        <br />
+        </div>
+        <div>
         <label htmlFor="steps">Steps: </label>
         <br />
         {formData.steps?.map((step, i) => (
@@ -174,19 +177,20 @@ const handleStepsChange = (index, newValue) => {
             name="steps"
             value={step.step}
             onChange={(e) => handleStepsChange(i, e.target.value)}
-            placeholder="Steps..."
+            placeholder="Steps. . ."
           />
           </div>
         ))}
         {errors.steps && <div className="error">{errors.steps}</div>}
         <input type="button" onClick={handleAddStep} value="Add Step"/>
-        <br />
+        </div>
+        <div>
         <label htmlFor="diets">Diets: </label>
         <br />
         {diets?.map((diet, i) => (
           <div key={diet.id}>
             <input 
-            type="checkbox"
+            type="checkbox" className='checkbox'
             name="diets"
             checked={formData.diets.includes(diet.id)}
             onChange={(e) => handleDietsChange(e, diet.id)}
@@ -195,8 +199,10 @@ const handleStepsChange = (index, newValue) => {
           </div>
           ))}
           {errors.diets && <div className="error">{errors.diets}</div>}
-          <br />
+          </div>
+          <div>
           <button type="submit">Send</button>
+          </div>
           </form>
           </div>
         

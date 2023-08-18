@@ -1,10 +1,12 @@
-import { PAGE,ALL_RECIPES, SEARCH_RECIPES, DETAIL_RECIPE, CREATE_RECIPE, ORDER,RESET_RECIPES,FILTER_DIETS,FILTER_ORIGIN,ALL_DIETS} from './actions'; 
+import { PAGE,ALL_RECIPES, SEARCH_RECIPES, DETAIL_RECIPE, CREATE_RECIPE, ORDER,CLEAR_RECIPE,FILTER_DIETS,FILTER_ORIGIN,ALL_DIETS, SAVE_RECIPE_IMAGES} from './actions'; 
 
 const initialState = {
   recipes: [],
   allrecipes: [],
   diets: [],
   page: 1,
+  recipe:{},
+  recipeImages: [],
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -14,6 +16,11 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         page: action.payload,
         };
+    case SAVE_RECIPE_IMAGES:
+      return {
+        ...state,
+        recipeImages: [...action.payload],
+      };
     case ALL_RECIPES:
       return {
         ...state,
@@ -28,14 +35,13 @@ export default function rootReducer(state = initialState, action) {
     case DETAIL_RECIPE:
             return {
               ...state,
-              recipes: action.payload,
+              recipe: action.payload,
               };
-    case RESET_RECIPES:
-      return{
-        ...state,
-        recipes:[...action.allrecipes]
-      
-      }
+    case CLEAR_RECIPE:
+            return {
+              ...state,
+              recipe: {},
+              };
     case ALL_DIETS:
       return {
         ...state,

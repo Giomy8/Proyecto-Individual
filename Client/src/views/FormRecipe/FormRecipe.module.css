@@ -1,10 +1,27 @@
-.fondo{
+.fondo {
     background: url(../../assets/imagenes/create.jpg);
     border: solid 3px black;
-    background-size: 100% 100%;
-    padding: 80px;
-    padding-right: 150px;
-    width: 80vw;
-    max-width: 800px;
+    background-size: cover;
+    padding: 5%; /* Ajusta el padding en unidades relativas */
+    width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
-}
+  }
+  
+  .datos {
+    display: grid;
+    grid-template-columns: 1fr; /* Cambia el diseño de dos columnas a una sola columna en pantallas más pequeñas */
+    gap: 20px; /* Añade espacio entre los elementos en una sola columna */
+    margin-right: 0; /* Elimina el margen derecho en pantallas más pequeñas */
+  }
+  
+  /* Resto de tus estilos */
+  
+  @media (min-width: 768px) {
+    /* Estilos para pantallas más grandes (a partir de 768px) */
+    .datos {
+      grid-template-columns: 1fr 1fr; /* Restaura el diseño de dos columnas en pantallas más grandes */
+      gap: 0; /* Elimina el espacio entre las columnas en dos columnas */
+      margin-right: -260px;
+    }
+  }

@@ -9,7 +9,6 @@ const HomePage = () => {
   const dispatch = useDispatch();
 
   // Obtener el estado de Redux
-  const allRecipes = useSelector((store) => store.allrecipes);
   const recipes = useSelector((store) => store.recipes);
   const nowPage = useSelector((store) => store.page);
   const diets = useSelector((store) => store.diets);
@@ -31,7 +30,6 @@ const HomePage = () => {
     const end = init + recipesPerPage;
     pageRecipes = recipes?.slice(init, end);
     setRecipesPage(pageRecipes);
-    console.log("xx" + pag, pageRecipes);
     window.scrollTo({
       top: 0,
       behavior: 'smooth', //desplazamiento suave
@@ -94,15 +92,11 @@ const HomePage = () => {
   
 
   useEffect(() => {
-    dispatch(getAllRecipes())
-    .catch(error => {
-      console.error('Error when obtaining recipes', error);
-    });
-    dispatch(getAllDiets())
-    .catch(error => {
-      console.error('Error when obtaining diets', error);
-    });
-  },[]);
+    if(recipes.length===0){
+      dispatch(getAllRecipes());
+    }  
+  }
+  , []);
 
   return (
     <div className={styles.fondo}>

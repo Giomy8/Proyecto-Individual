@@ -1,10 +1,19 @@
-.fondo{
+.fondo {
     background: url(../../assets/imagenes/details2.jpg);
     border: solid 3px black;
-    background-size: 100% 100%;
-    padding: 80px;
-    padding-right: 150px;
-    width: 80vw;
-    max-width: 800px;
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el fondo */
+    padding: 5%; /* Ajusta el padding en unidades relativas */
+    width: 90%; /* Usa unidades relativas para el ancho */
+    max-width: 1200px; /* Establece un máximo para evitar que el contenido se vuelva demasiado ancho */
     margin: 0 auto;
-}
+  }
+  
+  /* Resto de tus estilos */
+  
+  @media (max-width: 768px) {
+    /* Estilos para pantallas más pequeñas (hasta 768px) */
+    .fondo {
+      padding: 10%; /* Ajusta el padding para responsividad */
+    }
+  }
+  

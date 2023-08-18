@@ -9,7 +9,8 @@ export const FILTER_ORIGIN = 'FILTER_ORIGIN';
 export const ORDER = 'ORDER';
 export const CREATE_RECIPE = 'CREATE_RECIPE';
 export const ALL_DIETS = 'ALL_DIETS';
-export const RESET_RECIPES = 'RESET_RECIPES';
+export const CLEAR_RECIPE = 'CLEAR_RECIPE';
+export const SAVE_RECIPE_IMAGES = 'SAVE_RECIPE_IMAGES';
 
 
 export const savePage = (pag) => {
@@ -22,8 +23,12 @@ export const savePage = (pag) => {
 export const getAllRecipes = () => {
 return async (dispatch) => {
  try {
-   let response = await  axios.get('http://localhost:3001/recipes-all')
+   let response = await  axios.get('http://localhost:3001/recipes')
    let data = response.data
+
+  const recipeImages = data.map((recipe) => recipe.image);
+  dispatch(saveRecipeImages(recipeImages));
+
    return dispatch({
     type: 'ALL_RECIPES',
     payload: data,
@@ -34,6 +39,15 @@ return async (dispatch) => {
  }
  
 };
+};
+
+
+
+export const saveRecipeImages = (images) => {
+  return {
+    type: SAVE_RECIPE_IMAGES,
+    payload: images,
+  };
 };
 
 export const getAllDiets = () => {
@@ -94,6 +108,12 @@ export const getRecipeByName = (name) => {
     };
     }
 
+  export const clearRecipe = () => {
+    return {
+      type: 'CLEAR_RECIPE',
+    };
+  };
+
   export const filterRecipesDiets = (diet) => {
     return {
       type: 'FILTER_DIETS',
@@ -134,10 +154,10 @@ export const getRecipeByName = (name) => {
     payload: 'health_desc',
   });
 
-  export const createRecipe = formData => {
+  export const createRecipe = (formData) => {
     return async dispatch => {
       // Lógica para crear una nueva receta en la API
-      const response = await axios.post('/recipes', formData);
+      const response = await axios.post('http://localhost:3001/recipes', formData);
       dispatch({ 
         type: 'CREATE_RECIPE', 
         payload: response.data 

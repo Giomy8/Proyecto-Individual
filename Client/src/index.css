@@ -6,19 +6,84 @@ body{
  background: url(../src/assets/imagenes/home.jpg);
 }
 
-input{
-  background-color:  black;
+input[type='text'],input[type='number'] {
+  background-color:  rgb(229, 224, 173);
   border:0;
+  border: solid 3px black;
   height: 40px;
   width: 280px;
   border-radius: 15px;
-  color: white;
+  color: black;
   margin:0;
   margin-right: 10px;
   padding-left: 40px;
   margin-bottom: 10px;
   font-size: 20px;
 }
+
+label{
+ font-size: 30px; 
+}
+
+h2{
+  font-size: 25px;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  background-color: black;
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* Estilos para el icono de marca de verificación */
+input[type='checkbox'].checked::before {
+  content: '\2713'; /* Código del símbolo de marca de verificación */
+  color: #00aaff;
+  font-size: 16px;
+}
+
+/* Cambio de estilo al pasar el cursor por encima */
+input[type='checkbox']:hover {
+  color: rgb(229, 224, 173);
+}
+
+input[type='button']{
+  font-family:serif;
+  color: white;
+  background-color: black;
+  margin: 0 10px;
+  border: 0;
+  font-size: 20px;
+  padding: 0px 20px;
+  border-radius: 20px;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+input[type='button']:hover{
+  color: rgb(229, 224, 173);
+}
+
+
+textarea{
+  background-color:  rgb(229, 224, 173);
+  border:0;
+  border: solid 3px black;
+  
+  width: 280px;
+  border-radius: 15px;
+  color: black;
+  margin:0;
+  margin-right: 10px;
+  padding-left: 40px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
 
 button{
   font-family:serif;
@@ -29,10 +94,11 @@ button{
   font-size: 25px;
   padding: 0px 80px;
   border-radius: 20px;
+  border: solid 1px white;
   padding-bottom: 10px;
   cursor: pointer;
 }
 
 button:hover{
-  color:rgb(229, 245, 7);
+  color:rgb(231, 223, 131);
 }

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getRecipeById } from '../../redux/actions';
+import { getRecipeById, clearRecipe } from '../../redux/actions';
 import { useDispatch} from 'react-redux';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import styles from './Detail.module.css';
@@ -8,11 +8,14 @@ import styles from './Detail.module.css';
 const DetailPage = () => {
 const { recipeId } = useParams();
 const dispatch = useDispatch();
-const recipe = useSelector((store) => store.recipes);
+const recipe = useSelector((store) => store.recipe);
 //console.log(recipe,"77");
 
 useEffect(() => {
   dispatch(getRecipeById(recipeId));
+  return () => {
+    dispatch(clearRecipe());
+  }
 },[dispatch, recipeId]);
 
   let arraysteps = [];
