@@ -37,7 +37,7 @@ useEffect(() => {
   return (
     <div className={styles.fondo}>
       <h1>{recipe?.title}</h1>
-      <img src={recipe.image} alt={recipe.title} />
+      <img src={recipe.image} alt={recipe.title} className={styles.image}/>
       <h2 >ID: {recipe?.id}</h2>
       <h2>SUMMARY:</h2>
       <div dangerouslySetInnerHTML={{ __html: recipe.summary }}> 

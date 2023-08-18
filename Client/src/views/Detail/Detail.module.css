@@ -8,6 +8,10 @@
     margin: 0 auto;
   }
   
+  .image{
+    width: 100%;
+    max-width: 400px;
+  }
   /* Resto de tus estilos */
   
   @media (max-width: 768px) {

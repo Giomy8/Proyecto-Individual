@@ -25,6 +25,7 @@ export function validateRecipe(inputs) {
 const FormRecipe = () => {
   const dispatch = useDispatch();
   const diets = useSelector((store) => store.diets);
+  const [successMessage, setSuccessMessage] = useState('');
 
   const [formData, setFormData] = useState({
     title: '',
@@ -98,19 +99,21 @@ const handleSubmit = (event) => {
     return;
   }
 
-  dispatch(createRecipe(formData));
-
-  setFormData({
-    title: '',
-    summary: '',
-    healthScore: '',
-    steps: [], // Change this line to set steps to an empty array
-    image: '',
-    diets: [],
-  });
+  try {
+    dispatch(createRecipe(formData));
+    setSuccessMessage('Your recipe was created successfully!');
+    setFormData({
+      title: '',
+      summary: '',
+      healthScore: '',
+      steps: [],
+      image: '',
+      diets: [],
+    });
+  } catch (error) {
+    console.error('Error creating recipe', error);
+  }
 };
-
-
   return (
     <div className={styles.fondo}>
       <h2>Create a New Recipe</h2>
@@ -204,6 +207,9 @@ const handleSubmit = (event) => {
           <button type="submit">Send</button>
           </div>
           </form>
+          {successMessage && (
+          <div className="success">{successMessage}</div>
+          )}
           </div>
         
   );
